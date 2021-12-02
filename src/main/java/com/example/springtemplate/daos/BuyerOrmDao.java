@@ -1,3 +1,4 @@
+
 package com.example.springtemplate.daos;
 
 import com.example.springtemplate.models.Buyer;
@@ -54,3 +55,4 @@ public class BuyerOrmDao {
         return buyerRepository.save(buyer);
     }
 }
+

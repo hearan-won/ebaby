@@ -1,3 +1,4 @@
+
 package com.example.springtemplate.repositories;
 
 import com.example.springtemplate.models.Buyer;
@@ -17,4 +18,5 @@ public interface BuyerRestRepository
             nativeQuery = true)
     public Buyer findBuyerById(@Param("buyerId") Integer id);
 }
+
 

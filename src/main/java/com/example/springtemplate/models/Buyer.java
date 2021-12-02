@@ -1,3 +1,4 @@
+
 package com.example.springtemplate.models;
 import javax.persistence.*;
 

@@ -9,8 +9,6 @@ import java.util.List;
 
 public interface PersonRestRepository
         extends CrudRepository<Person, Integer> {
-
-
     @Query(value = "SELECT * FROM persons",
             nativeQuery = true)
     public List<Person> findAllPersons();

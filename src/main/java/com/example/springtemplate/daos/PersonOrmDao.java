@@ -15,13 +15,15 @@ public class PersonOrmDao {
     PersonRestRepository personRepository;
 
 
-    @GetMapping("/api/persons/create/{fn}/{ln}/{un}/{pw}")
+    @GetMapping("/api/persons/create/{fn}/{ln}/{un}/{pw}/{em}/{dob}")
     public Person createPerson(
             @PathVariable("fn") String first,
             @PathVariable("ln") String last,
             @PathVariable("un") String uname,
-            @PathVariable("pw") String pass) {
-        Person person = new Person(first, last, uname, pass, null, null);
+            @PathVariable("pw") String pass,
+            @PathVariable("em")String email,
+            @PathVariable("dob")String dateOfBirth){
+        Person person = new Person(first, last, uname, pass, email, dateOfBirth);
         return personRepository.save(person);
     }
 

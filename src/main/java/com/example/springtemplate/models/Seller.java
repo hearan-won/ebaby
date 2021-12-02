@@ -8,6 +8,8 @@ import javax.persistence.*;
 public class Seller extends Person {
     private String companyName;
 
+    @OneToOne(mappedBy = "seller")
+    private Inventory inventory;
 
     public Integer getId() { return id; }
     public void setId(Integer id) { this.id = id; }

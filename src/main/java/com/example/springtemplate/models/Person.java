@@ -14,8 +14,6 @@ public class Person {
     protected String userName;
     protected String password;
     protected String email;
-
-    @Column(name = "date_of_birth")
     protected String dateOfBirth;
 
 

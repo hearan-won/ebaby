@@ -1,6 +1,5 @@
 package com.example.springtemplate.daos;
 
-import com.example.springtemplate.models.Person;
 import com.example.springtemplate.models.Seller;
 import com.example.springtemplate.repositories.SellerRestRepository;
 import org.springframework.beans.factory.annotation.Autowired;

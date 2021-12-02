@@ -2,7 +2,6 @@
 package com.example.springtemplate.daos;
 
 import com.example.springtemplate.models.Buyer;
-import com.example.springtemplate.models.Person;
 import com.example.springtemplate.repositories.BuyerRestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,36 +1,28 @@
-//package com.example.springtemplate.models;
-//
-//public class Seller {
-//    private Integer id;
-//    private String firstName;
-//    private String lastName;
-//    private String username;
-//    private String password;
-//    private String profilePicture;
-//    private String handle;
-//
-//    public Integer getId() { return id; }
-//    public void setId(Integer id) { this.id = id; }
-//    public String getFirstName() { return firstName; }
-//    public void setFirstName(String firstName) { this.firstName = firstName; }
-//    public String getLastName() { return lastName; }
-//    public void setLastName(String lastName) { this.lastName = lastName; }
-//    public String getSellername() { return username; }
-//    public void setSellername(String username) { this.username = username; }
-//    public String getPassword() { return password; }
-//    public void setPassword(String password) { this.password = password; }
-//    public String getProfilePicture() { return profilePicture; }
-//    public void setProfilePicture(String profilePicture) { this.profilePicture = profilePicture; }
-//    public String getHandle() { return handle; }
-//    public void setHandle(String handle) { this.handle = handle; }
-//
-//    public Seller(String username, String password, String first_name, String last_name, String profile_picture) {
-//        this.username = username;
-//        this.password = password;
-//        this.firstName = first_name;
-//        this.lastName = last_name;
-//        this.profilePicture = profile_picture;
-//    }
-//
-//    public Seller() {}
-//}
+package com.example.springtemplate.models;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.*;
+@Entity
+@Table(name="sellers")
+public class Seller extends Person {
+    private String companyName;
+
+
+    public Integer getId() { return id; }
+    public void setId(Integer id) { this.id = id; }
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
+    }
+
+    public Seller(String firstName, String lastName, String userName, String password, String email, String dateOfBirth, String companyName) {
+        super(firstName, lastName, userName, password, email, dateOfBirth);
+        this.companyName = companyName;
+    }
+
+    public Seller() {}
+}

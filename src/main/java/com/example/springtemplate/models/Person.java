@@ -4,17 +4,21 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="persons")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Person {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-    private String firstName;
-    private String lastName;
-    private String userName;
-    private String password;
-    private String email;
-    private String dateOfBirth;
+    protected Integer id;
+    protected String firstName;
+    protected String lastName;
+    protected String userName;
+    protected String password;
+    protected String email;
+
+    @Column(name = "date_of_birth")
+    protected String dateOfBirth;
+
 
     public Integer getId() { return id; }
     public void setId(Integer id) { this.id = id; }

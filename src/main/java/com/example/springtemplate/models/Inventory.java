@@ -1,6 +1,7 @@
 package com.example.springtemplate.models;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name ="inventorys")
@@ -12,6 +13,9 @@ public class Inventory {
     @JoinColumn(name = "sid", referencedColumnName = "id")
     private Seller seller;
     private String location;
+
+    @OneToMany(mappedBy="inventory")
+    private List<Product> products;
 
     public Inventory(){}
 

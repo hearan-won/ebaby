@@ -10,4 +10,8 @@ public interface InventoryRestRepository extends CrudRepository<Inventory, Integ
     @Query(value = "SELECT * FROM inventorys WHERE inventorys.sid=:sellerId",
             nativeQuery = true)
     public Inventory findInventoryBySellerId(@Param("sellerId") Integer id);
+
+    @Query(value = "SELECT * FROM inventorys WHERE inventorys.id=:id",
+            nativeQuery = true)
+    public Inventory findInventoryById(@Param("id") Integer id);
 }

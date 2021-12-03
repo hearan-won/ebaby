@@ -3,8 +3,8 @@ const BUYERS_URL = "http://localhost:8080/api/buyers"
 
 // Retrieve all users from the server
 export const findAllBuyers = () =>
-    fetch(`${BUYERS_URL}`+`/find`)
-        .then(response => console.log(response.json()));
+    fetch(BUYERS_URL)
+        .then(response => response.json());
 
 // Retrieve a single user by their ID
 export const findBuyerById = (id) =>
@@ -19,20 +19,20 @@ export const deleteBuyer = (id) =>
     })
 
 
-// Create a new user
-export const createBuyer = (user) =>
+// Create a new buyer
+export const createBuyer = (buyer) =>
     fetch(BUYERS_URL, {
         method: 'POST',
-        body: JSON.stringify(user),
+        body: JSON.stringify(buyer),
         headers: {'content-type': 'application/json'}
     })
         .then(response => response.json())
 
 // Update a user by their ID
-export const updateBuyer = (id, user) =>
+export const updateBuyer = (id, buyer) =>
     fetch(`${BUYERS_URL}/${id}`, {
         method: 'PUT',
-        body: JSON.stringify(user),
+        body: JSON.stringify(buyer),
         headers: {'content-type': 'application/json'}
     })
         .then(response => response.json())

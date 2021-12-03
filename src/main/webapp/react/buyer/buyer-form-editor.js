@@ -16,9 +16,13 @@ const BuyerFormEditor = () => {
         history.back();
     }
 
-    const updateBuyer = (id, newBuyer) =>
-        buyerService.updateBuyer(id, newBuyer)
-            .then(() => {goBack()});
+    const updateBuyer = (id, buyer) => {
+        //console.log("Update Buyer: ", buyer);
+        buyerService.updateBuyer(id, buyer)
+            .then(() => {
+                goBack()
+            });
+    }
 
 
     const createBuyer = (buyer) =>
@@ -53,10 +57,10 @@ const BuyerFormEditor = () => {
                        setBuyer(buyer =>
                            ({...buyer, lastName: e.target.value}))}/><br/>
             <label>Username</label>
-            <input value={buyer.username}
+            <input value={buyer.personName}
                    onChange={(e) =>
                        setBuyer(buyer =>
-                           ({...buyer, username: e.target.value}))}/><br/>
+                           ({...buyer, personName: e.target.value}))}/><br/>
             <label>Password</label>
             <input value={buyer.password}
                    onChange={(e) =>

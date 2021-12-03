@@ -6,7 +6,7 @@ const BuyerList = () => {
     const history = useHistory();
     const [buyers, setBuyers] = useState([]);
     useEffect(() => {
-        buyerService.findAllBuyers() .then(buyers => setBuyers(buyers));
+        buyerService.findAllBuyers().then(buyers => setBuyers(buyers));
     }, []);
 
     return (
@@ -23,9 +23,7 @@ const BuyerList = () => {
                         <li className="list-group-item"
                             key={buyer.id}>
                             <Link to={`/buyers/${buyer.id}`}>
-                                {buyer.firstName},
-                                {buyer.lastName},
-                                {buyer.username}
+                                {buyer.firstName} {buyer.lastName}: {buyer.personName}
                             </Link>
                         </li>
                     )

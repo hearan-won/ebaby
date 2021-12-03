@@ -1,10 +1,10 @@
-const {useState, useEffect} = React;
+const {useState, useEffect } = React;
 const {Link} = window.ReactRouterDOM;
 
-const InlineBuyerEditor = ({buyer, deleteBuyer, updateBuyer}) => {
-    const [buyerCopy, setBuyerCopy] = useState(buyer)
+const InlineUserEditor = ({user, deleteUser, updateUser}) => {
+    const [userCopy, setUserCopy] = useState(user)
     const [editing, setEditing] = useState(false)
-    return (
+    return(
         <div>
             {
                 editing &&
@@ -12,23 +12,23 @@ const InlineBuyerEditor = ({buyer, deleteBuyer, updateBuyer}) => {
                     <div className="col">
                         <input
                             className="form-control"
-                            value={buyerCopy.firstName}
-                            onChange={(e) => setBuyerCopy(buyerCopy => ({...buyerCopy, firstName: e.target.value}))}/>
+                            value={userCopy.firstName}
+                            onChange={(e)=>setUserCopy(userCopy => ({...userCopy, firstName: e.target.value}))}/>
                     </div>
                     <div className="col">
                         <input
                             className="form-control"
-                            value={buyerCopy.lastName}
-                            onChange={(e) => setBuyerCopy(buyerCopy => ({...buyerCopy, lastName: e.target.value}))}/>
+                            value={userCopy.lastName}
+                            onChange={(e)=>setUserCopy(userCopy => ({...userCopy, lastName: e.target.value}))}/>
                     </div>
                     <div className="col">
                         <input
                             className="form-control"
-                            value={buyerCopy.username}
-                            onChange={(e) => setBuyerCopy(buyerCopy => ({...buyerCopy, username: e.target.value}))}/>
+                            value={userCopy.username}
+                            onChange={(e)=>setUserCopy(userCopy => ({...userCopy, username: e.target.value}))}/>
                     </div>
                     <div className="col-1">
-                        <Link to={`/buyers/${buyerCopy.id}/blogs`}>
+                        <Link to={`/users/${userCopy.id}/blogs`}>
                             Blogs
                         </Link>
                     </div>
@@ -36,12 +36,12 @@ const InlineBuyerEditor = ({buyer, deleteBuyer, updateBuyer}) => {
                         <i className="fas fa-2x fa-check float-right margin-left-10px"
                            onClick={() => {
                                setEditing(false)
-                               updateBuyer(buyerCopy.id, buyerCopy)
-                           }}/>
+                               updateUser(userCopy.id, userCopy)
+                           }}></i>
                         <i className="fas fa-2x fa-undo float-right margin-left-10px"
-                           onClick={() => setEditing(false)}/>
+                           onClick={() => setEditing(false)}></i>
                         <i className="fas fa-2x fa-trash float-right margin-left-10px"
-                           onClick={() => deleteBuyer(buyer.id)}/>
+                           onClick={() => deleteUser(user.id)}></i>
                     </div>
                 </div>
             }
@@ -49,28 +49,28 @@ const InlineBuyerEditor = ({buyer, deleteBuyer, updateBuyer}) => {
                 !editing &&
                 <div className="row">
                     <div className="col">
-                        <Link to={`/buyers/${buyerCopy.id}`}>
-                            {buyerCopy.firstName}
+                        <Link to={`/users/${userCopy.id}`}>
+                            {userCopy.firstName}
                         </Link>
                     </div>
                     <div className="col">
-                        <Link to={`/buyers/${buyerCopy.id}`}>
-                            {buyerCopy.lastName}
+                        <Link to={`/users/${userCopy.id}`}>
+                            {userCopy.lastName}
                         </Link>
                     </div>
                     <div className="col">
-                        <Link to={`/buyers/${buyerCopy.id}`}>
-                            {buyerCopy.username}
+                        <Link to={`/users/${userCopy.id}`}>
+                            {userCopy.username}
                         </Link>
                     </div>
                     <div className="col-1">
-                        <Link to={`/buyers/${buyerCopy.id}/blogs`}>
+                        <Link to={`/users/${userCopy.id}/blogs`}>
                             Blogs
                         </Link>
                     </div>
                     <div className="col-2">
                         <i className="fas fa-cog fa-2x float-right"
-                           onClick={() => setEditing(true)}/>
+                           onClick={() => setEditing(true)}></i>
                     </div>
                 </div>
             }
@@ -78,4 +78,4 @@ const InlineBuyerEditor = ({buyer, deleteBuyer, updateBuyer}) => {
     )
 }
 
-export default InlineBuyerEditor;
+export default InlineUserEditor;

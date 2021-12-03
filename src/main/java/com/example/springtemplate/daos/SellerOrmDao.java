@@ -13,7 +13,6 @@ import java.util.List;
 public class SellerOrmDao {
     @Autowired
     SellerRestRepository sellerRepository;
-    
     @GetMapping("/api/sellers/create/{fn}/{ln}/{un}/{pw}")
     public Seller createSeller(
             @PathVariable("fn") String first,
@@ -57,5 +56,4 @@ public class SellerOrmDao {
         seller.setPassword(newPass);
         return sellerRepository.save(seller);
     }
-
 }

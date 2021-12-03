@@ -59,20 +59,4 @@ public class Orders {
   public void setQuantity(Integer newQuant){
     this.quantity = newQuant;
   }
-
-//  public List<Product> getProducts() {
-//    return products;
-//  }
-//
-//  public void setProducts(List<Product> products) {
-//    this.products = products;
-//  }
-
-//  public Buyer getBuyer() {
-//    return buyer;
-//  }
-//
-//  public void setBuyer(Buyer buyer) {
-//    this.buyer = buyer;
-//  }
 }

@@ -26,3 +26,8 @@ input.form-control {
 .float-left {
     float: left;
 }
+input{
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}

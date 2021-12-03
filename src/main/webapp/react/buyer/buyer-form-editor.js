@@ -17,7 +17,6 @@ const BuyerFormEditor = () => {
     }
 
     const updateBuyer = (id, buyer) => {
-        //console.log("Update Buyer: ", buyer);
         buyerService.updateBuyer(id, buyer)
             .then(() => {
                 goBack()
@@ -66,6 +65,22 @@ const BuyerFormEditor = () => {
                    onChange={(e) =>
                        setBuyer(buyer =>
                            ({...buyer, password: e.target.value}))}/><br/>
+            <label>Email </label>
+            <input value={buyer.email}
+                   onChange={(e) =>
+                       setBuyer(buyer =>
+                           ({...buyer, email: e.target.value}))}/><br/>
+            <label>VIP subscription </label>
+            <input value={buyer.VIP}
+                   onChange={(e) =>
+                       setBuyer(buyer =>
+                           ({...buyer, VIP: e.target.value}))}/><br/>
+            <label>Date Of Birth </label>
+            <input type="date"
+                   value={buyer.dateOfBirth}
+                   onChange={(e) =>
+                       setBuyer(buyer =>
+                           ({...buyer, dateOfBirth: e.target.value}))}/><br/>
             <button className="btn btn-warning"
                     onClick={() => {
                         goBack()

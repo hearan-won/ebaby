@@ -38,6 +38,8 @@ public class BuyerRestOrmDao {
         buyer.setLastName(buyerUpdates.getLastName());
         buyer.setPersonName(buyerUpdates.getPersonName());
         buyer.setPassword(buyerUpdates.getPassword());
+        buyer.setDateOfBirth(buyerUpdates.getDateOfBirth());
+        buyer.setVIP(buyerUpdates.isVIP());
         return buyerRepository.save(buyer);
     }
 

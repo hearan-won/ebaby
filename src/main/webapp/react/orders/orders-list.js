@@ -1,15 +1,16 @@
 import ordersService, {findAllOrders} from "./orders-service"
+const {Link, useHistory} = window.ReactRouterDOM;
 const { useState, useEffect } = React;
 const OrdersList = () => {
     const findAllOrders = () =>
         ordersService.findAllOrders()
             .then(orders => setOrders(orders))
-    const [orders, setOrders] = useState([])
+    const [orders, setOrders] = useState([]);
     useEffect(() => {
         findAllOrders()
     }, [])
 
-
+    console.log(orders);
     return( <div>
             <h2>Orders List</h2>
             <ul>
@@ -18,8 +19,9 @@ const OrdersList = () => {
                         <li className="list-group-item"
                             key={order.id}>
                             <Link to={`/orders/${order.id}`}>
+                                {order.id},
                             {order.productId},
-                            {order.buyer},
+                                {order.buyerId},
                             {order.quantity}
                             </Link>
                         </li>)

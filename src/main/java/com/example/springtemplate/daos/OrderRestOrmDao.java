@@ -15,12 +15,16 @@ public class OrderRestOrmDao {
 
     @PostMapping("/api/orders")
     public Orders createOrders(@RequestBody Orders orders) {
+
         return orderRepository.save(orders);
     }
 
     @GetMapping("/api/orders")
     public List<Orders> findAllOrders() {
-        return orderRepository.findAllOrders();
+
+        List<Orders> allOrders = orderRepository.findAllOrders();
+        //System.out.println(allOrders);
+        return allOrders;
     }
 
     @GetMapping("/api/orders/{orderId}")

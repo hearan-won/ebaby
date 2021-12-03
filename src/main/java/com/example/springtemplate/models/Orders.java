@@ -11,8 +11,9 @@ public class Orders {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Integer id;
 
-  private int quantity;
-  private int productId;
+  private Integer quantity;
+  private Integer productId;
+  private Integer buyerId;
 
 //  @OneToMany(mappedBy="orders")
 //  private List<Product> products;
@@ -32,6 +33,7 @@ public class Orders {
 
   public Orders(Buyer buyer, int quantity, int productId) {
     this.buyer = buyer;
+    this.buyerId = this.buyer.id;
     this.quantity = quantity;
     this.productId = productId;
   }
@@ -42,6 +44,14 @@ public class Orders {
 
   public void setId(Integer id) {
     this.id = id;
+  }
+
+  public int getBuyerId() {
+    return buyerId;
+  }
+
+  public void setBuyerId(int buyerId) {
+    this.buyerId = buyerId;
   }
 
   public int getProductId() {

@@ -11,7 +11,7 @@ const OrdersFormEditor = () => {
     const findOrdersById = (id) =>
         ordersService.findOrdersById(id).then(order => setOrder(order))
 
-    console.log(order);
+    console.log(order.quantity);
     return (
         <div>
             <h2>Orders Editor</h2>
@@ -19,6 +19,8 @@ const OrdersFormEditor = () => {
             <input value={order.id}/><br/>
             <label>Product ID</label>
             <input value={order.productId}/><br/>
+            <label>Buyer ID</label>
+            <input value={order.buyerId}/><br/>
             <label>Quantity</label>
             <input value={order.quantity}/><br/>
             <button>Cancel</button>

@@ -12,7 +12,7 @@ public interface OrdersRestRepository extends CrudRepository<Orders, Integer> {
 
   @Query(value = "SELECT * FROM orders WHERE orders.bid=:buyerId",
           nativeQuery = true)
-  public Orders findOrdersByBuyerId(@Param("buyerId") Integer id);
+  public List<Orders> findOrdersByBuyerId(@Param("buyerId") Integer id);
 
   @Query(value = "SELECT * FROM orders WHERE orders.id=:id",
           nativeQuery = true)

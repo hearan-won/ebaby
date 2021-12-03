@@ -42,7 +42,7 @@ public class OrdersDao {
   }
 
   @GetMapping("/api/orders/find/{buyerId}")
-  public Orders findOrdersByBuyerId(
+  public List<Orders> findOrdersByBuyerId(
           @PathVariable("buyerId") Integer id) {
     return ordersRepository.findOrdersByBuyerId(id);
   }

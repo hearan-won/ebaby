@@ -1,5 +1,5 @@
 // Declare URL where server listens for HTTP requests
-const ORDERS_URL = "http://localhost:8080/api/orders"
+const ORDERS_URL = "http://localhost:8090/api/orders"
 
 export const findAllOrders = () =>
     fetch(ORDERS_URL)

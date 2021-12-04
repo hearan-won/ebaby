@@ -1,34 +1,26 @@
 const {useState, useEffect} = React;
 const {Link} = window.ReactRouterDOM;
 
-const InlineBuyerEditor = ({buyer, deleteBuyer, updateBuyer}) => {
-    const [buyerCopy, setBuyerCopy] = useState(buyer)
-    const [editing, setEditing] = useState(false)
+const InlineOrderEditor = ({order, deleteOrder, updateOrder}) => {
+    const [orderCopy, setOrderCopy] = useState(order);
+    const [editing, setEditing] = useState(false);
+
     return (
         <div>
             {
                 editing &&
                 <div className="row">
                     <div className="col">
-                        <input
-                            className="form-control"
-                            value={buyerCopy.firstName}
-                            onChange={(e) => setBuyerCopy(buyerCopy => ({...buyerCopy, firstName: e.target.value}))}/>
+
                     </div>
                     <div className="col">
-                        <input
-                            className="form-control"
-                            value={buyerCopy.lastName}
-                            onChange={(e) => setBuyerCopy(buyerCopy => ({...buyerCopy, lastName: e.target.value}))}/>
+
                     </div>
                     <div className="col">
-                        <input
-                            className="form-control"
-                            value={buyerCopy.username}
-                            onChange={(e) => setBuyerCopy(buyerCopy => ({...buyerCopy, username: e.target.value}))}/>
+
                     </div>
                     <div className="col-1">
-                        <Link to={`/buyers/${buyerCopy.id}/blogs`}>
+                        <Link to={`/buyers/${orderCopy.id}/blogs`}>
                             Blogs
                         </Link>
                     </div>
@@ -36,12 +28,12 @@ const InlineBuyerEditor = ({buyer, deleteBuyer, updateBuyer}) => {
                         <i className="fas fa-2x fa-check float-right margin-left-10px"
                            onClick={() => {
                                setEditing(false)
-                               updateBuyer(buyerCopy.id, buyerCopy)
+                               updateOrder(orderCopy.id, orderCopy)
                            }}/>
                         <i className="fas fa-2x fa-undo float-right margin-left-10px"
                            onClick={() => setEditing(false)}/>
                         <i className="fas fa-2x fa-trash float-right margin-left-10px"
-                           onClick={() => deleteBuyer(buyer.id)}/>
+                           onClick={() => deleteOrder(order.id)}/>
                     </div>
                 </div>
             }
@@ -78,4 +70,4 @@ const InlineBuyerEditor = ({buyer, deleteBuyer, updateBuyer}) => {
     )
 }
 
-export default InlineBuyerEditor;
+export default InlineOrderEditor;

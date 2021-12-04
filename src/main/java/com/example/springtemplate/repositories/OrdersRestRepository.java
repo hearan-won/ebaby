@@ -6,11 +6,13 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
+import java.util.List;
+
 public interface OrdersRestRepository extends CrudRepository<Orders, Integer> {
 
-  @Query(value = "SELECT * FROM orders WHERE orders.bid=:buyerId",
+  @Query(value = "SELECT * FROM orders WHERE orders.buyer_id=:buyerId",
           nativeQuery = true)
-  public Orders findOrdersByBuyerId(@Param("buyerId") Integer id);
+  public List<Orders> findOrdersByBuyerId(@Param("buyerId") Integer id);
 
   @Query(value = "SELECT * FROM orders WHERE orders.id=:id",
           nativeQuery = true)
@@ -20,4 +22,6 @@ public interface OrdersRestRepository extends CrudRepository<Orders, Integer> {
           nativeQuery = true)
   public Orders findOrdersByProductId(@Param("productId") Integer id);
 
+  @Query (value = "SELECT * FROM orders", nativeQuery = true)
+  public List<Orders> findAllOrders();
 }

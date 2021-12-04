@@ -16,8 +16,9 @@ public class Product {
     private String name;
 
     @ManyToOne
-    @JoinColumn(name="inventory_id", nullable=false)
+    @JoinColumn(name="inventory_id")
     private Inventory inventory;
+
 
     public Integer getId() {
         return id;
@@ -59,6 +60,13 @@ public class Product {
         this.inventory = inventory;
     }
 
+
+    //    public Product(String category, float price, String name, Inventory inventory) {
+//        this.category = Category.convertString(category);
+//        this.price = price;
+//        this.name = name;
+//        this.inventory = inventory;
+//    }
     public Product(String category, float price, String name, Inventory inventory) {
         this.category = Category.convertString(category);
         this.price = price;

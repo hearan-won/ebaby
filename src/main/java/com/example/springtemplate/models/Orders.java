@@ -1,7 +1,5 @@
 package com.example.springtemplate.models;
 
-import java.util.List;
-
 import javax.persistence.*;
 
 @Entity

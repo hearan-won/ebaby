@@ -1,5 +1,5 @@
 // Declare URL where server listens for HTTP requests
-const BUYERS_URL = "http://localhost:8080/api/buyers"
+const BUYERS_URL = "http://localhost:8090/api/buyers"
 
 // Retrieve all users from the server
 export const findAllBuyers = () =>

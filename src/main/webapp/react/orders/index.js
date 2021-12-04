@@ -1,5 +1,6 @@
-import InventoryList from "./order-list";
-import InventoryFormEditor from "./order-form-editor";
+import OrderList from "./order-list";
+import OrderFormEditor from "./order-form-editor";
+
 const {HashRouter, Route} = window.ReactRouterDOM; 
 
 const App = () => {
@@ -7,7 +8,7 @@ const App = () => {
         <div className="container-fluid">
             <HashRouter>
                 <Route path={["/orders", "/"]} exact={true}>
-                    <OrdersList/>
+                    <OrderList/>
                 </Route>
                 <Route path="/orders/:id" exact={true}>
                     <OrderFormEditor/>

@@ -1,5 +1,5 @@
 // Declare URL where server listens for HTTP requests
-const INVENTORY_URL = "http://localhost:8080/api/inventorys"
+const INVENTORY_URL = "http://localhost:8090/api/inventorys"
 
 // Retrieve all users from the server
 export const findAllInventorys = () =>

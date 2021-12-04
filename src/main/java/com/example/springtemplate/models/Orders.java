@@ -11,7 +11,6 @@ public class Orders {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Integer id;
 
-
   private int quantity;
   private int productId;
   private int bid;
@@ -26,24 +25,17 @@ public class Orders {
   private Buyer buyer;
 
   public Orders(int quantity) {
-
     this.quantity = quantity;
   }
 
   public Orders() {
-
   }
 
-
   public Orders(int bid, int quantity, int productId) {
-    this.bid = bid;
-
-  public Orders(Buyer buyer, int quantity, int productId) {
-    this.buyer = buyer;
-    this.buyerId = this.buyer.id;
 
     this.quantity = quantity;
     this.productId = productId;
+    this.bid = bid;
   }
 
   public Integer getId() {
@@ -52,14 +44,6 @@ public class Orders {
 
   public void setId(Integer id) {
     this.id = id;
-  }
-
-  public int getBuyerId() {
-    return buyerId;
-  }
-
-  public void setBuyerId(int buyerId) {
-    this.buyerId = buyerId;
   }
 
   public int getProductId() {
@@ -78,7 +62,6 @@ public class Orders {
     this.quantity = newQuant;
   }
 
-
   public int getBid() {
     return bid;
   }
@@ -86,21 +69,5 @@ public class Orders {
   public void setBid(int bid) {
     this.bid = bid;
   }
-
-  //  public List<Product> getProducts() {
-//    return products;
-//  }
-//
-//  public void setProducts(List<Product> products) {
-//    this.products = products;
-//  }
-
-//  public Buyer getBuyer() {
-//    return buyer;
-//  }
-//
-//  public void setBuyer(Buyer buyer) {
-//    this.buyer = buyer;
-//  }
 
 }

@@ -23,11 +23,14 @@ const BuyerList = () => {
                         <li className="list-group-item"
                             key={buyer.id}>
                             <Link to={`/buyers/${buyer.id}`}>
-                                {buyer.firstName} {buyer.lastName}: {buyer.personName}
+                                <label>Buyer information</label><br/>
+                                <label>First Name: {buyer.firstName} </label><br/>
+                                <label>Last Name: {buyer.lastName}</label><br/>
+                                <label>User Name: {buyer.personName}</label>
                             </Link>
                         </li>
                     )
-                }
+                } :
             </ul>
         </div>
     );

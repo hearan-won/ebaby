@@ -1,7 +1,6 @@
-import OrderList from "./order-list";
-import OrderFormEditor from "./order-form-editor";
-import OrdersList from "./orders-list";
-const {HashRouter, Route} = window.ReactRouterDOM;
+import InventoryList from "./order-list";
+import InventoryFormEditor from "./order-form-editor";
+const {HashRouter, Route} = window.ReactRouterDOM; 
 
 const App = () => {
     return (

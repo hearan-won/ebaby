@@ -1,47 +1,47 @@
 // Declare URL where server listens for HTTP requests
-const BUYERS_URL = "http://localhost:8080/api/buyers"
+const ORDER_URL = "http://localhost:8080/api/orders"
 
 // Retrieve all users from the server
-export const findAllBuyers = () =>
-    fetch(BUYERS_URL)
+export const findAllOrders = () =>
+    fetch(ORDER_URL)
         .then(response => response.json());
 
 // Retrieve a single user by their ID
-export const findBuyerById = (id) =>
-    fetch(`${BUYERS_URL}/${id}`)
+export const findOrderById = (id) =>
+    fetch(`${ORDER_URL}/${id}`)
         .then(response => response.json())
 
 
 // Delete a user by their ID
-export const deleteBuyer = (id) =>
-    fetch(`${BUYERS_URL}/${id}`, {
+export const deleteOrder = (id) =>
+    fetch(`${ORDER_URL}/${id}`, {
         method: "DELETE"
     })
 
 
-// Create a new buyer
-export const createBuyer = (buyer) =>
-    fetch(BUYERS_URL, {
+// Create a new order
+export const createOrder = (order) =>
+    fetch(ORDER_URL, {
         method: 'POST',
-        body: JSON.stringify(buyer),
+        body: JSON.stringify(order),
         headers: {'content-type': 'application/json'}
     })
         .then(response => response.json())
 
 // Update a user by their ID
-export const updateBuyer = (id, buyer) =>
-    fetch(`${BUYERS_URL}/${id}`, {
+export const updateOrder = (id, order) =>
+    fetch(`${ORDER_URL}/${id}`, {
         method: 'PUT',
-        body: JSON.stringify(buyer),
+        body: JSON.stringify(order),
         headers: {'content-type': 'application/json'}
     })
         .then(response => response.json())
 
 // Export all functions as the API to this service
 export default {
-    findAllBuyers,
-    findBuyerById,
-    deleteBuyer,
-    createBuyer,
-    updateBuyer
+    findAllOrders,
+    findOrderById,
+    deleteOrder,
+    createOrder,
+    updateOrder
 }

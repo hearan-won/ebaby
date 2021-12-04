@@ -1,15 +1,9 @@
 package com.example.springtemplate.daos;
 
 import com.example.springtemplate.models.Buyer;
-import com.example.springtemplate.models.Inventory;
 import com.example.springtemplate.models.Orders;
-import com.example.springtemplate.models.Product;
-import com.example.springtemplate.models.Seller;
 import com.example.springtemplate.repositories.BuyerRestRepository;
-import com.example.springtemplate.repositories.InventoryRestRepository;
 import com.example.springtemplate.repositories.OrdersRestRepository;
-import com.example.springtemplate.repositories.ProductRestRepository;
-import com.example.springtemplate.repositories.SellerRestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -32,7 +26,7 @@ public class OrdersDao {
           @PathVariable("productId") Integer productId) {
 
     Buyer buyer = buyerRepository.findBuyerById(buyerId);
-    Orders order = new Orders(buyer, quantity, productId);
+    Orders order = new Orders(buyerId, quantity, productId);
     return ordersRepository.save(order);
   }
 

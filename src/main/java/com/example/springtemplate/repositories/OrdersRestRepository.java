@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface OrdersRestRepository extends CrudRepository<Orders, Integer> {
 
-  @Query(value = "SELECT * FROM orders WHERE orders.bid=:buyerId",
+  @Query(value = "SELECT * FROM orders WHERE orders.buyer_id=:buyerId",
           nativeQuery = true)
   public List<Orders> findOrdersByBuyerId(@Param("buyerId") Integer id);
 
@@ -24,4 +24,5 @@ public interface OrdersRestRepository extends CrudRepository<Orders, Integer> {
 
   @Query (value = "SELECT * FROM orders", nativeQuery = true)
   public List<Orders> findAllOrders();
+
 }

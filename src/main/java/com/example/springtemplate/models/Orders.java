@@ -11,15 +11,18 @@ public class Orders {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Integer id;
 
-  private Integer quantity;
-  private Integer productId;
-  private Integer buyerId;
+
+  private int quantity;
+  private int productId;
+  private int bid;
+
+
 
 //  @OneToMany(mappedBy="orders")
 //  private List<Product> products;
 
   @ManyToOne
-  @JoinColumn(name="bid", nullable=false)
+  @JoinColumn(name="bid", nullable=false, insertable=false, updatable = false)
   private Buyer buyer;
 
   public Orders(int quantity) {
@@ -31,9 +34,14 @@ public class Orders {
 
   }
 
+
+  public Orders(int bid, int quantity, int productId) {
+    this.bid = bid;
+
   public Orders(Buyer buyer, int quantity, int productId) {
     this.buyer = buyer;
     this.buyerId = this.buyer.id;
+
     this.quantity = quantity;
     this.productId = productId;
   }
@@ -69,4 +77,30 @@ public class Orders {
   public void setQuantity(Integer newQuant){
     this.quantity = newQuant;
   }
+
+
+  public int getBid() {
+    return bid;
+  }
+
+  public void setBid(int bid) {
+    this.bid = bid;
+  }
+
+  //  public List<Product> getProducts() {
+//    return products;
+//  }
+//
+//  public void setProducts(List<Product> products) {
+//    this.products = products;
+//  }
+
+//  public Buyer getBuyer() {
+//    return buyer;
+//  }
+//
+//  public void setBuyer(Buyer buyer) {
+//    this.buyer = buyer;
+//  }
+
 }

@@ -77,7 +77,7 @@ const OrderFormEditor = () => {
 
             <button className="btn btn-primary"
                     onClick={() => updateOrder(order.id, order)}>
-                Save
+                Update
             </button>
 
             <button className="btn btn-success"

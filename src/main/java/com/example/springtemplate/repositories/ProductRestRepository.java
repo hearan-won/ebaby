@@ -23,6 +23,6 @@ public interface ProductRestRepository extends CrudRepository<Product, Integer> 
 
     @Query(value = "DELETE FROM products WHERE products.id =:id);",
             nativeQuery = true)
-    public Inventory deleteProductById(@Param("id") Integer id);
+    public void deleteProductById(@Param("id") Integer id);
 
 }

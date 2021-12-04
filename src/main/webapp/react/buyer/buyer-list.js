@@ -30,7 +30,7 @@ const BuyerList = () => {
                             </Link>
                         </li>
                     )
-                } :
+                }
             </ul>
         </div>
     );

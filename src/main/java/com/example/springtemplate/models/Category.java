@@ -7,7 +7,8 @@ public enum Category {
     FOOD_DRINK;
 
     static public Category convertString(String value) {
-        switch(value) {
+        String lowerValue = value.toLowerCase();
+        switch(lowerValue) {
             case "apparel":
                 return Category.APPAREL;
             case "art":

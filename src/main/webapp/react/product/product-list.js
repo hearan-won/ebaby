@@ -9,7 +9,6 @@ const ProductList = () => {
         productService.findAllProducts().then(products => setProducts(products));
     }, []);
 
-    console.log(products)
     return (
         <div>
             <h2>Product List</h2>
@@ -28,7 +27,7 @@ const ProductList = () => {
                                                <label>Category  {product.category} </label><br/>
                                                <label>Name: {product.name}</label><br/>
                                                <label>Price {product.price} </label><br/>
-                                               <label>Inventory Id: {product.inventory.id}</label>
+                                               <label>Inventory Id: {product.inventoryId}</label>
                                            </Link>
                                        </li>
                     )

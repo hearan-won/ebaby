@@ -29,7 +29,7 @@ public class ProductDao {
             @PathVariable("name") String name,
             @PathVariable("inventoryId") Integer inventoryId) {
         Inventory inventory = inventoryRepository.findInventoryById(inventoryId);
-        Product product = new Product(category, price, name, inventory);
+        Product product = new Product(category, price, name, inventoryId);
         return productRepository.save(product);
     }
 

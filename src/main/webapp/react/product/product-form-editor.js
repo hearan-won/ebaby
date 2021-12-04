@@ -34,7 +34,6 @@ const ProductFormEditor = () => {
     const findProductById = (id) =>
         productService.findProductById(id)
             .then(product => {
-                //setInventoryId(product.inventory.id);
                 setProduct(product)
             });
 

@@ -5,6 +5,7 @@ const {useParams} = window.ReactRouterDOM;
 
 const InventoryFormEditor = () => {
     const {id} = useParams();
+    const [sellerId, setSellerId] = useState(null);
     const [inventory, setInventory] = useState({});
     useEffect(() => {
         if (id !== "new") {
@@ -32,7 +33,10 @@ const InventoryFormEditor = () => {
 
     const findInventoryById = (id) =>
         inventoryService.findInventoryById(id)
-            .then(inventory => setInventory(inventory));
+            .then(inventory => {
+                setSellerId(inventory.seller.id);
+                setInventory(inventory)
+            });
 
     const deleteInventory = (id) =>
         inventoryService.deleteInventory(id)
@@ -40,7 +44,6 @@ const InventoryFormEditor = () => {
                 goBack()
             });
 
-    let sellerNum = inventory === null ? null : inventory.id;
 
     return (
         <div>
@@ -54,7 +57,7 @@ const InventoryFormEditor = () => {
                            ({...inventory, location: e.target.value}))}
             /><br/>
             <label>Seller Id</label>
-            <input value={sellerNum}
+            <input value={sellerId}
                    onChange={(e) =>
                        setInventory(inventory =>
                            ({...inventory, seller: {

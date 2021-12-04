@@ -1,34 +1,92 @@
-import ordersService from "./orders-service"
+import orderService from "./order-service"
+
 const {useState, useEffect} = React;
 const {useParams} = window.ReactRouterDOM;
 
-const OrdersFormEditor = () => {
-    const {id} = useParams()
-    const [order, setOrder] = useState({})
+const OrderFormEditor = () => {
+    const {id} = useParams();
+    const [order, setOrder] = useState({});
     useEffect(() => {
-        findOrdersById(id)
+        if (id !== "new") {
+            findOrderById(id);
+        }
     }, []);
-    const findOrdersById = (id) =>
-        ordersService.findOrdersById(id).then(order => setOrder(order))
 
-    console.log(order.quantity);
+    const goBack = () => {
+        history.back();
+    }
+
+    const updateOrder = (id, order) => {
+        orderService.updateOrder(id, order)
+            .then(() => {
+                goBack()
+            });
+    }
+
+
+    const createOrder = (order) =>
+        orderService.createOrder(order)
+            .then(() => {
+                goBack()
+            });
+
+    const findOrderById = (id) =>
+        orderService.findOrderById(id)
+            .then(order => setOrder(order));
+
+    const deleteOrder = (id) =>
+        orderService.deleteOrder(id)
+            .then(() => {
+                goBack()
+            });
+
     return (
         <div>
-            <h2>Orders Editor</h2>
-            <label>ID</label>
+            <h2>Order Editor</h2>
+            <label>id</label>
             <input value={order.id}/><br/>
-            <label>Product ID</label>
-            <input value={order.productId}/><br/>
-            <label>Buyer ID</label>
-            <input value={order.buyerId}/><br/>
+            <label>Product Id</label>
+            <input value={order.productId}
+                   onChange={(e) =>
+                       setOrder(order =>
+                           ({...order, productId: e.target.value}))}
+            /><br/>
             <label>Quantity</label>
-            <input value={order.quantity}/><br/>
-            <button>Cancel</button>
-            <button>Delete</button>
-            <button>Create</button>
-            <button>Save</button>
+            <input value={order.quantity}
+                   onChange={(e) =>
+                       setOrder(order =>
+                           ({...order, quantity: e.target.value}))}
+            /><br/>
+            <label>Buyer Id</label>
+            <input value={order.bid}
+                   onChange={(e) =>
+                       setOrder(order =>
+                           ({...order, bid: e.target.value}))}
+            /><br/>
+            <button className="btn btn-warning"
+                    onClick={() => {
+                        goBack()
+                    }}>
+                Cancel
+            </button>
+
+            <button className="btn btn-danger"
+                    onClick={() => deleteOrder(order.id)}>
+                Delete
+            </button>
+
+            <button className="btn btn-primary"
+                    onClick={() => updateOrder(order.id, order)}>
+                Save
+            </button>
+
+            <button className="btn btn-success"
+                    onClick={() => createOrder(order)}>
+                Create
+            </button>
+
         </div>
-    )
+    );
 }
 
-export default OrdersFormEditor;
+export default OrderFormEditor;

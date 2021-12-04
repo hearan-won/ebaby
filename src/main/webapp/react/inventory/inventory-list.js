@@ -23,7 +23,10 @@ const InventoryList = () => {
                         <li className="list-group-item"
                             key={inventory.id}>
                             <Link to={`/inventorys/${inventory.id}`}>
-                                {inventory.id}. {inventory.seller.companyName}: {inventory.location}
+                                <label>Inventory  {inventory.id} </label><br/>
+                                <label>Seller id: {inventory.seller.id}</label><br/>
+                                <label>Company name: {inventory.seller.companyName} </label><br/>
+                                <label>Company location: {inventory.location}</label>
                             </Link>
                         </li>
                     )

@@ -13,12 +13,13 @@ public class Orders {
 
   private int quantity;
   private int productId;
+  private int bid;
 
 //  @OneToMany(mappedBy="orders")
 //  private List<Product> products;
 
   @ManyToOne
-  @JoinColumn(name="bid", nullable=false)
+  @JoinColumn(name="bid", nullable=false, insertable=false, updatable = false)
   private Buyer buyer;
 
   public Orders(int quantity) {
@@ -30,8 +31,8 @@ public class Orders {
 
   }
 
-  public Orders(Buyer buyer, int quantity, int productId) {
-    this.buyer = buyer;
+  public Orders(int bid, int quantity, int productId) {
+    this.bid = bid;
     this.quantity = quantity;
     this.productId = productId;
   }
@@ -60,7 +61,15 @@ public class Orders {
     this.quantity = newQuant;
   }
 
-//  public List<Product> getProducts() {
+  public int getBid() {
+    return bid;
+  }
+
+  public void setBid(int bid) {
+    this.bid = bid;
+  }
+
+  //  public List<Product> getProducts() {
 //    return products;
 //  }
 //
@@ -75,4 +84,5 @@ public class Orders {
 //  public void setBuyer(Buyer buyer) {
 //    this.buyer = buyer;
 //  }
+
 }

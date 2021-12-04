@@ -20,9 +20,7 @@ public class OrdersRestOrmDao {
 
     @GetMapping("/api/orders")
     public List<Orders> findAllOrders() {
-
         List<Orders> allOrders = orderRepository.findAllOrders();
-        //System.out.println(allOrders);
         return allOrders;
     }
 
@@ -32,16 +30,16 @@ public class OrdersRestOrmDao {
         return orderRepository.findOrdersById(id);
     }
 
-    /*
-    @PutMapping("/api/orders/{buyerId}")
+
+    @PutMapping("/api/orders/{orderId}")
     public Orders updateOrder(
-            @PathVariable("buyerId") Integer id,
+            @PathVariable("orderId") Integer id,
             @RequestBody Orders orderUpdates) {
-        Orders order = orderRepository.findOrdersByProductId(id);
+        Orders order = orderRepository.findOrdersById(id);
         order.setQuantity(orderUpdates.getQuantity());
         return orderRepository.save(order);
     }
-     */
+
 
     @DeleteMapping("/api/orders/{orderId}")
     public void deleteBuyer(

@@ -26,7 +26,7 @@ public class OrdersDao {
           @PathVariable("productId") Integer productId) {
 
     Buyer buyer = buyerRepository.findBuyerById(buyerId);
-    Orders order = new Orders(buyer, quantity, productId);
+    Orders order = new Orders(buyerId, quantity, productId);
     return ordersRepository.save(order);
   }
 

@@ -25,3 +25,4 @@ public interface OrdersRestRepository extends CrudRepository<Orders, Integer> {
   @Query (value = "SELECT * FROM orders", nativeQuery = true)
   public List<Orders> findAllOrders();
 }
+

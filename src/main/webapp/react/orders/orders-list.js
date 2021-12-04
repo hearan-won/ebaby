@@ -1,5 +1,6 @@
-import ordersService from "./orders-service"
-const {Link} = window.ReactRouterDOM;
+import ordersService, {findAllOrders} from "./orders-service"
+const {Link, useHistory} = window.ReactRouterDOM;
+
 const { useState, useEffect } = React;
 const OrdersList = () => {
     const findAllOrders = () =>
@@ -20,11 +21,19 @@ const OrdersList = () => {
                             key={order.id}>
                             <Link to={`/orders/${order.id}`}>
                                 {order.id},
+
                                 {order.productId},
                                 {order.buyerId},
                                 {order.quantity}
                             </Link>
                         </li>)
+
+                            {order.productId},
+                                {order.buyerId},
+                            {order.quantity}
+                            </Link>
+                        </li>)
+
                 }
             </ul>
         </div>

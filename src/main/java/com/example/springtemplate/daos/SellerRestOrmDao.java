@@ -23,15 +23,15 @@ public class SellerRestOrmDao {
         return sellerRepository.findAllSellers();
     }
 
-    @GetMapping("/api/buyers/{sellerId}")
-    public Seller findBuyerById(
+    @GetMapping("/api/sellers/{sellerId}")
+    public Seller findSellerById(
             @PathVariable("sellerId") Integer id) {
         return sellerRepository.findSellerById(id);
     }
 
     @PutMapping("/api/sellers/{sellerId}")
-    public Seller updateBuyer(
-            @PathVariable("buyerId") Integer id,
+    public Seller updateSeller(
+            @PathVariable("sellerId") Integer id,
             @RequestBody Seller sellerUpdates) {
         Seller seller = sellerRepository.findSellerById(id);
         //seller.setVIP(sellerUpdates.isVIP());

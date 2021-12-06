@@ -23,14 +23,14 @@ public class SellerRestOrmDao {
     }
 
     @GetMapping("/api/sellers/{sellerId}")
-    public Seller findBuyerById(
+    public Seller findSellerById(
             @PathVariable("sellerId") Integer id) {
         return sellerRepository.findSellerById(id);
     }
 
     @PutMapping("/api/sellers/{sellerId}")
-    public Seller updateBuyer(
-            @PathVariable("buyerId") Integer id,
+    public Seller updateSeller(
+            @PathVariable("sellerId") Integer id,
             @RequestBody Seller sellerUpdates) {
         Seller seller = sellerRepository.findSellerById(id);
         seller.setFirstName(sellerUpdates.getFirstName());

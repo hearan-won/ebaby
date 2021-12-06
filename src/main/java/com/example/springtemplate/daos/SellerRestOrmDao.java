@@ -1,6 +1,5 @@
 package com.example.springtemplate.daos;
 
-import com.example.springtemplate.models.Buyer;
 import com.example.springtemplate.models.Seller;
 import com.example.springtemplate.repositories.SellerRestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,13 +33,11 @@ public class SellerRestOrmDao {
             @PathVariable("sellerId") Integer id,
             @RequestBody Seller sellerUpdates) {
         Seller seller = sellerRepository.findSellerById(id);
-        //seller.setVIP(sellerUpdates.isVIP());
         seller.setFirstName(sellerUpdates.getFirstName());
         seller.setLastName(sellerUpdates.getLastName());
         seller.setPersonName(sellerUpdates.getPersonName());
         seller.setPassword(sellerUpdates.getPassword());
         seller.setDateOfBirth(sellerUpdates.getDateOfBirth());
-        //seller.setVIP(sellerUpdates.isVIP());
         return sellerRepository.save(seller);
     }
 

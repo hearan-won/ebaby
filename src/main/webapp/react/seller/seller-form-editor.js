@@ -69,11 +69,6 @@ const SellerFormEditor = () => {
                    onChange={(e) =>
                        setSeller(seller =>
                            ({...seller, email: e.target.value}))}/><br/>
-            <label>VIP subscription </label>
-            <input value={seller.VIP}
-                   onChange={(e) =>
-                       setSeller(seller =>
-                           ({...seller, VIP: e.target.value}))}/><br/>
             <label>Date Of Birth </label>
             <input type="date"
                    value={seller.dateOfBirth}
@@ -92,7 +87,7 @@ const SellerFormEditor = () => {
             </button>
             <button className="btn btn-primary"
                     onClick={() => updateSeller(seller.id, seller)}>
-                Save
+                Update
             </button>
             <button className="btn btn-success"
                     onClick={() => createSeller(seller)}>

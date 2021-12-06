@@ -42,31 +42,38 @@ const ProductFormEditor = () => {
             .then(() => {
                 goBack()
             });
-
+    
     return (
         <div>
+
             <h2>Product Editor</h2>
-            <label>Product Id</label>
+            <label>Product Id:</label>
             <input value={product.id}/><br/>
-            <label>Category</label>
-            <input value={product.category}
-                   onChange={(e) =>
-                       setProduct(product =>
-                                        ({...product, category: e.target.value}))}
-            /><br/>
-            <label>Name</label>
+            <label>Current Category: {product.category}</label><br/>
+            <label>Select New Category: </label>
+            <select name="categories" id="category"
+                    onChange = { (e) =>
+                        setProduct( product => ({...product, category: e.target.value}))} >
+                <option value="FOOD_DRINK">Food & Drinks</option>
+                <option value="ELECTRONICS">Electronics</option>
+                <option value="APPAREL">Apparel</option>
+                <option value="ART">Art</option>
+            </select>
+
+            <br/>
+            <label>Name: </label>
             <input value={product.name}
                    onChange={(e) =>
                        setProduct(product =>
                                       ({...product, name: e.target.value}))}
             /><br/>
-            <label>Price</label>
+            <label>Price: </label>
             <input value={product.price}
                    onChange={(e) =>
                        setProduct(product =>
                                       ({...product, price: e.target.value}))}
             /><br/>
-            <label>Inventory Id</label>
+            <label>Inventory Id: </label>
             <input value={product.inventoryId}
                    onChange={(e) =>
                        setProduct(product =>

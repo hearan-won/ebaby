@@ -95,7 +95,7 @@ const BuyerFormEditor = () => {
 
             <button className="btn btn-primary"
                     onClick={() => updateBuyer(buyer.id, buyer)}>
-                Save
+                Update
             </button>
 
             <button className="btn btn-success"

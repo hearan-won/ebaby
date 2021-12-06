@@ -14,11 +14,19 @@ public class Product {
 
     private float price;
     private String name;
+    private Integer inventoryId;
 
     @ManyToOne
-    @JoinColumn(name="inventory_id")
+    @JoinColumn(name="inventoryId", nullable=false, insertable=false, updatable = false)
     private Inventory inventory;
 
+    public int getInventoryId() {
+        return inventoryId;
+    }
+
+    public void setInventoryId(int inventoryId) {
+        this.inventoryId = inventoryId;
+    }
 
     public Integer getId() {
         return id;
@@ -52,26 +60,11 @@ public class Product {
         this.name = name;
     }
 
-    public Inventory getInventory() {
-        return inventory;
-    }
-
-    public void setInventory(Inventory inventory) {
-        this.inventory = inventory;
-    }
-
-
-    //    public Product(String category, float price, String name, Inventory inventory) {
-//        this.category = Category.convertString(category);
-//        this.price = price;
-//        this.name = name;
-//        this.inventory = inventory;
-//    }
-    public Product(String category, float price, String name, Inventory inventory) {
+    public Product(String category, float price, String name, int inventoryId) {
         this.category = Category.convertString(category);
         this.price = price;
         this.name = name;
-        this.inventory = inventory;
+        this.inventoryId = inventoryId;
     }
 
     public Product() {}

@@ -23,8 +23,7 @@ public class InventoryDao {
     public Inventory createInventory(
             @PathVariable("sid") Integer sellerId,
             @PathVariable("lo") String location) {
-        Seller seller = sellerRepository.findSellerById(sellerId);
-        Inventory inventory = new Inventory(seller, location);
+        Inventory inventory = new Inventory(sellerId, location);
         return inventoryRepository.save(inventory);
     }
 

@@ -24,5 +24,5 @@ public interface InventoryRestRepository extends CrudRepository<Inventory, Integ
 
     @Query(value = "DELETE FROM inventorys WHERE inventorys.id =:id);",
             nativeQuery = true)
-    public Inventory deleteInventoryById(@Param("id") Integer id);
+    public void deleteInventoryById(@Param("id") Integer id);
 }

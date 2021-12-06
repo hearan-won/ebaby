@@ -20,18 +20,14 @@ public class InventoryRestOrmDao {
 
     @PostMapping("/api/inventorys")
     public Inventory createInventory(@RequestBody Inventory inventory) {
-        Seller sell = inventory.getSeller();
-        Seller seller = sellerRepository.findSellerById(sell.getId());
-        Inventory invent = new Inventory(inventory.getId(), seller, inventory.getLocation());
-        return inventoryRepository.save(invent);
+        Inventory invent = new Inventory(inventory.getId(), inventory.getSellerId(), inventory.getLocation());
+        Inventory savedInventory = inventoryRepository.save(invent);
+        return savedInventory;
     }
 
     @GetMapping("/api/inventorys")
     public List<Inventory> findAllInventorys() {
         List<Inventory> inventories = inventoryRepository.findAllInventorys();
-        for (Inventory  inv : inventories) {
-            System.out.println(inventories);
-        }
         return inventories;
     }
 
@@ -54,7 +50,7 @@ public class InventoryRestOrmDao {
             @RequestBody Inventory inventoryUpdates) {
         Inventory inventory = inventoryRepository.findInventoryById(id);
         inventory.setLocation(inventoryUpdates.getLocation());
-        inventory.setSeller(inventoryUpdates.getSeller());
+        inventory.setSellerId(inventoryUpdates.getSellerId());
         inventory.setId(inventoryUpdates.getId());
         return inventoryRepository.save(inventory);
     }
@@ -62,6 +58,6 @@ public class InventoryRestOrmDao {
     @DeleteMapping("/api/inventorys/{inventoryId}")
     public void deleteInventoryById(
             @PathVariable("inventoryId") Integer id) {
-        inventoryRepository.deleteInventoryById(id);
+        inventoryRepository.deleteById(id);
     }
 }

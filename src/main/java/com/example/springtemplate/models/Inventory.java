@@ -9,9 +9,12 @@ public class Inventory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "sid", referencedColumnName = "id")
+
+    @OneToOne
+    @JoinColumn(name = "sid", referencedColumnName = "id", nullable=false, insertable=false, updatable = false)
     private Seller seller;
+
+    private int sid;
     private String location;
 
     @OneToMany(mappedBy="inventory")
@@ -19,14 +22,14 @@ public class Inventory {
 
     public Inventory(){}
 
-    public Inventory(Seller seller, String location) {
-        this.seller = seller;
+    public Inventory(int sid, String location) {
+        this.sid = sid;
         this.location = location;
     }
 
-    public Inventory(Integer id, Seller seller, String location) {
+    public Inventory(Integer id, int sid, String location) {
         this.id = id;
-        this.seller = seller;
+        this.sid = sid;
         this.location = location;
     }
 
@@ -38,19 +41,19 @@ public class Inventory {
         this.id = id;
     }
 
-    public Seller getSeller() {
-        return seller;
-    }
-
-    public void setSeller(Seller seller) {
-        this.seller = seller;
-    }
-
     public String getLocation() {
         return location;
     }
 
     public void setLocation(String location) {
         this.location = location;
+    }
+
+    public int getSellerId() {
+        return sid;
+    }
+
+    public void setSellerId(int sid) {
+        this.sid = sid;
     }
 }

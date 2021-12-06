@@ -24,8 +24,7 @@ const InventoryList = () => {
                             key={inventory.id}>
                             <Link to={`/inventorys/${inventory.id}`}>
                                 <label>Inventory  {inventory.id} </label><br/>
-                                <label>Seller id: {inventory.seller.id}</label><br/>
-                                <label>Company name: {inventory.seller.companyName} </label><br/>
+                                <label>Seller id: {inventory.sellerId}</label><br/>
                                 <label>Company location: {inventory.location}</label>
                             </Link>
                         </li>

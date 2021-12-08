@@ -17,29 +17,47 @@ const SellerList = () => {
                     onClick={() => history.push("/sellers/new")}>
                 Add Seller
             </button>
-
+            <h4>Buyer information</h4><br/>
             <ul className="list-group">
+
+                <table width="100%">
+                    <tr>
+                        <th>Seller Id</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>User Name</th>
+                        <th>See Inventory</th>
+                    </tr>
+                    {sellers.map(seller => <tr>
+                                    <td>{seller.id}</td>
+                                    <td>{seller.firstName}</td>
+                                    <td>{seller.lastName}</td>
+                                    <td>{seller.personName}</td>
+                                    <td><button className="wd-btn-primary">Inventory</button></td>
+                                </tr>
+                    )}
+                </table>
                 {
-                    sellers.map(seller =>
-                        <li className="list-group-item wd-buyer-bg"
-                            key={seller.id}>
-                            <div className="row">
-                                <div className="col">
-                                    <Link to={`/sellers/${seller.id}`}>
-                                        <label>Seller information</label><br/>
-                                        <label>First Name: {seller.firstName} </label><br/>
-                                        <label>Last Name: {seller.lastName}</label><br/>
-                                        <label>User Name: {seller.personName}</label>
-                                    </Link>
-                                </div>
-                                <div className="col">
-                                    <button className="wd-btn-primary">
-                                        Inventory
-                                    </button>
-                                </div>
-                            </div>
-                        </li>
-                    )
+                    // sellers.map(seller =>
+                    //     <li className="list-group-item wd-buyer-bg"
+                    //         key={seller.id}>
+                    //         <div className="row">
+                    //             <div className="col">
+                    //                 <Link to={`/sellers/${seller.id}`}>
+                    //                     <label>Seller information</label><br/>
+                    //                     <label>First Name: {seller.firstName} </label><br/>
+                    //                     <label>Last Name: {seller.lastName}</label><br/>
+                    //                     <label>User Name: {seller.personName}</label>
+                    //                 </Link>
+                    //             </div>
+                    //             <div className="col">
+                    //                 <button className="wd-btn-primary">
+                    //                     Inventory
+                    //                 </button>
+                    //             </div>
+                    //         </div>
+                    //     </li>
+                    // )
                 }
             </ul>
         </div>

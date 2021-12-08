@@ -39,6 +39,19 @@ const BuyerFormEditor = () => {
             .then(() => {
                 goBack()
             });
+
+    const setVIP = (event) => {
+        if (event.target.value === '1') {
+            setBuyer(buyer =>
+                ({...buyer, vip: true}))
+        }
+        else {
+            setBuyer(buyer =>
+                ({...buyer, vip: false}))
+        }
+
+    }
+
     return (
         <div>
             <h2>Buyer Editor</h2>
@@ -71,10 +84,11 @@ const BuyerFormEditor = () => {
                        setBuyer(buyer =>
                            ({...buyer, email: e.target.value}))}/><br/>
             <label>VIP subscription </label>
-            <input value={buyer.VIP}
-                   onChange={(e) =>
-                       setBuyer(buyer =>
-                           ({...buyer, VIP: e.target.value}))}/><br/>
+            <select name="vip"
+                    onChange = { (e) => setVIP(e)} >
+                <option value="1"  name="vip">True</option>
+                <option value="0" selected="true" name="vip">False</option>
+            </select><br/>
             <label>Date Of Birth </label>
             <input type="date"
                    value={buyer.dateOfBirth}

@@ -20,13 +20,22 @@ const InventoryList = () => {
             <ul className="list-group">
                 {
                     inventorys.map(inventory =>
-                        <li className="list-group-item"
+                        <li className="list-group-item wd-buyer-bg"
                             key={inventory.id}>
+                            <div className="row">
+                                <div className="col">
                             <Link to={`/inventorys/${inventory.id}`}>
                                 <label>Inventory  {inventory.id} </label><br/>
                                 <label>Seller id: {inventory.sellerId}</label><br/>
                                 <label>Company location: {inventory.location}</label>
                             </Link>
+                                </div>
+                                <div className="col">
+                                    <button className="wd-btn-primary">
+                                        Products
+                                    </button>
+                                </div>
+                            </div>
                         </li>
                     )
                 }

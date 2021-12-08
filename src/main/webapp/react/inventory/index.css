@@ -3,6 +3,27 @@ button.btn {
     margin-bottom: 10px;
 }
 
+body {
+    background-color: slategray;
+    color: white;
+}
+
+.wd-btn-primary {
+    margin-top: 20px;
+    width: 100px;
+    height: 50px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    background-color: cadetblue;
+    border: none;
+    border-radius: 15px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
 input.form-control {
     margin-bottom: 10px;
 }
@@ -26,8 +47,8 @@ input.form-control {
 .float-left {
     float: left;
 }
-input{
-    align-items: center;
-    justify-content: center;
-    width: 100%;
+
+.wd-buyer-bg {
+    background-color: slategray;
+    border: 1px solid white;
 }

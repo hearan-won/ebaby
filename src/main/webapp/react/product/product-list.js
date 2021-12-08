@@ -1,4 +1,5 @@
 import productService from "./product-service";
+
 const {Link, useHistory} = window.ReactRouterDOM;
 const {useState, useEffect} = React;
 
@@ -20,16 +21,16 @@ const ProductList = () => {
             <ul className="list-group">
                 {
                     products.map(product =>
-                                       <li className="list-group-item"
-                                           key={product.id}>
-                                           <Link to={`/products/${product.id}`}>
-                                               <label>Product Id:  {product.id} </label><br/>
-                                               <label>Category  {product.category} </label><br/>
-                                               <label>Name: {product.name}</label><br/>
-                                               <label>Price {product.price} </label><br/>
-                                               <label>Inventory Id: {product.inventoryId}</label>
-                                           </Link>
-                                       </li>
+                        <li className="list-group-item  wd-buyer-bg"
+                            key={product.id}>
+                            <Link to={`/products/${product.id}`}>
+                                <label>Product Id: {product.id} </label><br/>
+                                <label>Category {product.category} </label><br/>
+                                <label>Name: {product.name}</label><br/>
+                                <label>Price {product.price} </label><br/>
+                                <label>Inventory Id: {product.inventoryId}</label>
+                            </Link>
+                        </li>
                     )
                 }
             </ul>

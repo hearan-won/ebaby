@@ -20,14 +20,23 @@ const OrderList = () => {
             <ul className="list-group">
                 {
                     orders.map(order =>
-                        <li className="list-group-item"
+                        <li className="list-group-item  wd-buyer-bg"
                             key={order.id}>
+                            <div className="row">
+                                <div className="col">
                             <Link to={`/orders/${order.id}`}>
                                 <label>Order {order.id} </label><br/>
                                 <label>Buyer id: {order.bid} </label><br/>
                                 <label>Product id: {order.productId}</label><br/>
                                 <label>Product quantity: {order.quantity}</label>
                             </Link>
+                                </div>
+                                <div className="col">
+                                    <button className="wd-btn-primary">
+                                        Products
+                                    </button>
+                                </div>
+                            </div>
                         </li>
                     )
                 }

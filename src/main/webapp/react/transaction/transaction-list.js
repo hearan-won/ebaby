@@ -20,7 +20,7 @@ const TransactionList = () => {
             <ul className="list-group">
                 {
                     transactions.map(transaction =>
-                                     <li className="list-group-item"
+                                     <li className="list-group-item wd-buyer-bg"
                                          key={transaction.id}>
                                          <Link to={`/transactions/${transaction.id}`}>
                                              <label>Transaction Id:  {transaction.id} </label><br/>

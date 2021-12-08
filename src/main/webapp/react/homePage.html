@@ -13,14 +13,16 @@
 <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
 <script src="https://unpkg.com/react-router-dom@5.2.0/umd/react-router-dom.min.js"></script>
 
-<script src="./user-service.js" type="text/jsx" data-type="module" data-plugins="transform-modules-umd"></script>
-<script src="./inline-user-editor.js" type="text/jsx" data-type="module" data-plugins="transform-modules-umd"></script>
-<script src="./user-form-editor.js" type="text/jsx" data-type="module" data-plugins="transform-modules-umd"></script>
-<script src="./user-list.js" type="text/jsx" data-type="module" data-plugins="transform-modules-umd"></script>
+<script src="./seller/seller-service.js" type="text/jsx" data-type="module" data-plugins="transform-modules-umd"></script>
+<script src="./seller/seller-form-editor.js" type="text/jsx" data-type="module" data-plugins="transform-modules-umd"></script>
+<script src="./seller/seller-list.js" type="text/jsx" data-type="module" data-plugins="transform-modules-umd"></script>
+<script src="./buyer/buyer-service.js" type="text/jsx" data-type="module" data-plugins="transform-modules-umd"></script>
+<script src="./buyer/buyer-form-editor.js" type="text/jsx" data-type="module" data-plugins="transform-modules-umd"></script>
+<script src="./buyer/buyer-list.js" type="text/jsx" data-type="module" data-plugins="transform-modules-umd"></script>
 
-<script src="index.js" type="text/jsx" data-type="module" data-plugins="transform-modules-umd"></script>
+<script src="homeScreen.js" type="text/jsx" data-type="module" data-plugins="transform-modules-umd"></script>
 <script type="text/jsx" data-type="module" data-plugins="transform-modules-umd">
-    import App from "src/main/webapp/react/users/index";
+    import App from "./homeScreen";
     ReactDOM.render(
         React.createElement(App),
         document.getElementById('root')

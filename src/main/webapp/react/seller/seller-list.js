@@ -1,4 +1,5 @@
 import sellerService from "./seller-service";
+
 const {Link, useHistory} = window.ReactRouterDOM;
 const {useState, useEffect} = React;
 
@@ -20,14 +21,23 @@ const SellerList = () => {
             <ul className="list-group">
                 {
                     sellers.map(seller =>
-                        <li className="list-group-item"
+                        <li className="list-group-item wd-buyer-bg"
                             key={seller.id}>
-                            <Link to={`/sellers/${seller.id}`}>
-                                <label>Seller information</label><br/>
-                                <label>First Name: {seller.firstName} </label><br/>
-                                <label>Last Name: {seller.lastName}</label><br/>
-                                <label>User Name: {seller.personName}</label>
-                            </Link>
+                            <div className="row">
+                                <div className="col">
+                                    <Link to={`/sellers/${seller.id}`}>
+                                        <label>Seller information</label><br/>
+                                        <label>First Name: {seller.firstName} </label><br/>
+                                        <label>Last Name: {seller.lastName}</label><br/>
+                                        <label>User Name: {seller.personName}</label>
+                                    </Link>
+                                </div>
+                                <div className="col">
+                                    <button className="wd-btn-primary">
+                                        Inventory
+                                    </button>
+                                </div>
+                            </div>
                         </li>
                     )
                 }

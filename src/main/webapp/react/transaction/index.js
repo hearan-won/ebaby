@@ -8,6 +8,7 @@ const App = () => {
             <a href="../buyer/index.html"> Buyer </a> |
             <a href="../orders/index.html"> Orders </a> |
             <a href="../inventory/index.html"> Inventory </a> |
+            <a href="../product/index.html"> Products </a>
             <HashRouter>
                 <Route path={["/transactions", "/"]} exact={true}>
                     <TransactionList/>

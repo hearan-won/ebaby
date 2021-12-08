@@ -20,13 +20,22 @@ const BuyerList = () => {
             <ul className="list-group">
                 {
                     buyers.map(buyer =>
-                        <li className="list-group-item"
+                        <li className="list-group-item wd-buyer-bg"
                             key={buyer.id}>
                             <Link to={`/buyers/${buyer.id}`}>
-                                <label>Buyer information</label><br/>
-                                <label>First Name: {buyer.firstName} </label><br/>
-                                <label>Last Name: {buyer.lastName}</label><br/>
-                                <label>User Name: {buyer.personName}</label>
+                               <div className="row">
+                                   <div className="col">
+                                       <label>Buyer information</label><br/>
+                                       <label>First Name: {buyer.firstName} </label><br/>
+                                       <label>Last Name: {buyer.lastName}</label><br/>
+                                       <label>User Name: {buyer.personName}</label>
+                                   </div>
+                                   <div className="col">
+                                       <button className="wd-btn-primary">
+                                           Orders
+                                       </button>
+                                   </div>
+                               </div>
                             </Link>
                         </li>
                     )

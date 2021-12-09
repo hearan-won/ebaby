@@ -17,21 +17,39 @@ const ProductList = () => {
                     onClick={() => history.push("/products/new")}>
                 Add Product
             </button>
-
+            <h4>Products information</h4><br/>
             <ul className="list-group">
+
+                <table width="100%">
+                    <tr>
+                        <th>Product Id</th>
+                        <th>Category</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Inventory Id</th>
+                    </tr>
+                    {products.map(product => <tr>
+                                    <td>{product.id}</td>
+                                    <td>{product.category}</td>
+                                    <td>{product.name}</td>
+                                    <td>{product.price}</td>
+                                    <td>{product.inventoryId}</td>
+                                </tr>
+                    )}
+                </table>
                 {
-                    products.map(product =>
-                        <li className="list-group-item  wd-buyer-bg"
-                            key={product.id}>
-                            <Link to={`/products/${product.id}`}>
-                                <label>Product Id: {product.id} </label><br/>
-                                <label>Category {product.category} </label><br/>
-                                <label>Name: {product.name}</label><br/>
-                                <label>Price {product.price} </label><br/>
-                                <label>Inventory Id: {product.inventoryId}</label>
-                            </Link>
-                        </li>
-                    )
+                    // products.map(product =>
+                    //     <li className="list-group-item  wd-buyer-bg"
+                    //         key={product.id}>
+                    //         <Link to={`/products/${product.id}`}>
+                    //             <label>Product Id: {product.id} </label><br/>
+                    //             <label>Category {product.category} </label><br/>
+                    //             <label>Name: {product.name}</label><br/>
+                    //             <label>Price {product.price} </label><br/>
+                    //             <label>Inventory Id: {product.inventoryId}</label>
+                    //         </Link>
+                    //     </li>
+                    // )
                 }
             </ul>
         </div>

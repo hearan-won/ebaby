@@ -34,6 +34,7 @@ const BuyerList = () => {
                             <td>{buyer.lastName}</td>
                             <td>{buyer.personName}</td>
                             <td><button className="wd-btn-primary">Orders</button></td>
+                            <td><Link to={`/buyers/${buyer.id}`}><button className="wd-btn-primary">Edit Buyer</button></Link></td>
                         </tr>
                         )}
                     </table>

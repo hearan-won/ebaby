@@ -1,5 +1,5 @@
 // Declare URL where server listens for HTTP requests
-const SELLERS_URL = "http://localhost:8090/api/sellers"
+const SELLERS_URL = "http://localhost:8000/api/sellers"
 
 // Retrieve all users from the server
 export const findAllSellers = () =>
@@ -8,8 +8,13 @@ export const findAllSellers = () =>
 
 // Retrieve a single user by their ID
 export const findSellerById = (id) =>
+    console.log(`${SELLERS_URL}/${id}`);
+    /*
     fetch(`${SELLERS_URL}/${id}`)
-        .then(response => response.json())
+        .then(response => {
+            console.log(response);
+            response.json();
+        })*/
 
 // Delete a user by their ID
 export const deleteSeller = (id) =>

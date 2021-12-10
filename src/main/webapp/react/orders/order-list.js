@@ -30,8 +30,6 @@ const OrderList = () => {
                     {orders.map(order => <tr>
                                         <td>{order.id}</td>
                                         <td>{order.bid}</td>
-                                        <td><h5><a href={`http://localhost:63342/ebaby/spring-template/src/main/webapp/react/product/index.html#/products/${order.productId}`}>{order.productId}</a></h5></td>
-
                                         <td>{order.productId}</td>
                                         <td>{order.quantity}</td>
                                         <td><button className="wd-btn-primary">See Products</button></td>

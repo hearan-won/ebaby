@@ -34,6 +34,7 @@ const TransactionList = () => {
             </button>
             <h4>Transactions Information</h4><br/>
             <ul className="list-group">
+
                 <table width="100%">
                     <tr>
                         <th>Transaction Id</th>
@@ -44,19 +45,15 @@ const TransactionList = () => {
                     </tr>
                     {transactions.map(transaction => <tr>
                             <td>{transaction.id}</td>
-                            <td><h5>{transaction.buyerId}</h5></td>
-                            <td><h5 onClick={() => {
-                                console.log("Clicking on ", transaction.sellerId)
-                                handleSellerClick(transaction.sellerId)
-                                //history.push(`/sellers/${transaction.sellerId}`);
-                            }}>{transaction.sellerId}</h5></td>
-
+                            <td><h5><a href={`http://localhost:63342/ebaby/spring-template/src/main/webapp/react/buyer/index.html#/buyers/${transaction.buyerId}`}>{transaction.buyerId}</a></h5></td>
+                            <td><h5><a href={`http://localhost:63342/ebaby/spring-template/src/main/webapp/react/seller/index.html#/sellers/${transaction.sellerId}`}>{transaction.sellerId}</a></h5></td>
                             <td>{transaction.transactionDate}</td>
                             <td>{transaction.amount}</td>
 
                         </tr>
                     )}
                 </table>
+                <Link to={`/transactions/2`}><button className="wd-btn-primary">Edit Seller</button></Link>
                 {/*{*/}
                 {/*    render ? <TransactionsBySID seller={localSeller}/> : <></>*/}
                 {/*}*/}

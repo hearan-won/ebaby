@@ -28,7 +28,7 @@ const InventoryList = () => {
                         </tr>
                         {inventorys.map(inventory => <tr>
                                         <td>{inventory.id}</td>
-                                        <td>{inventory.sellerId}</td>
+                                        <td><h5><a href={`http://localhost:63342/ebaby/spring-template/src/main/webapp/react/seller/index.html#/sellers/${inventory.sellerId}`}>{inventory.sellerId}</a></h5></td>
                                         <td>{inventory.location}</td>
                                         <td><button className="wd-btn-primary">Products</button></td>
                                     </tr>

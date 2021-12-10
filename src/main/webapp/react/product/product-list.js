@@ -34,6 +34,7 @@ const ProductList = () => {
                                     <td>{product.name}</td>
                                     <td>{product.price}</td>
                                     <td>{product.inventoryId}</td>
+                                    <td><Link to={`/products/${product.id}`}><button className="wd-btn-primary">Edit Product</button></Link></td>
                                 </tr>
                     )}
                 </table>

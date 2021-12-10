@@ -9,9 +9,11 @@ const App = () => {
                 <Route path={["/products", "/"]} exact={true}>
                     <ProductList/>
                 </Route>
+
                 <Route path="/products/:id" exact={true}>
                     <ProductFormEditor/>
                 </Route>
+
             </HashRouter>
         </div>
     );

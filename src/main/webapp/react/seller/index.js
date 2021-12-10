@@ -8,7 +8,7 @@ const App = () => {
                 <Route path={["/sellers", "/"]} exact={true}>
                     <SellerList/>
                 </Route>
-                <Route path="/sellers/:id" exact={true}>
+                <Route path="/sellers/:id">
                     <SellerFormEditor/>
                 </Route>
             </HashRouter>

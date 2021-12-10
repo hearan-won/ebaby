@@ -1,5 +1,12 @@
 // Declare URL where server listens for HTTP requests
 const INVENTORY_URL = "http://localhost:8000/api/inventorys"
+const PRODUCT_URL = "http://localhost:8000/api/products"
+
+
+// Retrieve all products from the server
+export const findProductsByInventoryId = (id) =>
+    fetch(`${PRODUCT_URL}/find/inventory/${id}`)
+        .then(response => response.json());
 
 // Retrieve all users from the server
 export const findAllInventorys = () =>
@@ -43,5 +50,6 @@ export default {
     findInventoryById,
     deleteInventory,
     createInventory,
-    updateInventory
+    updateInventory,
+    findProductsByInventoryId
 }

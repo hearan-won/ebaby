@@ -1,6 +1,13 @@
 // Declare URL where server listens for HTTP requests
 const PRODUCT_URL = "http://localhost:8000/api/products"
 
+
+// Retrieve all products from the server
+export const findProductsByInventoryId = (id) =>
+    fetch(`${PRODUCT_URL}/find/inventory/${id}`)
+        .then(response => response.json());
+
+
 // Retrieve all products from the server
 export const findAllProducts = () =>
     fetch(PRODUCT_URL)
@@ -39,6 +46,7 @@ export const updateProduct = (id, product) =>
 
 // Export all functions as the API to this service
 export default {
+    findProductsByInventoryId,
     findAllProducts,
     findProductById,
     deleteProduct,

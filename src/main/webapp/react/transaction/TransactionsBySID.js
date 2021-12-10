@@ -2,10 +2,9 @@ import React, {useState, useEffect} from 'react'
 
 
 const TransactionsBySID = ({seller}) => {
-    console.log(seller);
-
+    const sellerString = JSON.stringify(seller)
     return (
-        seller
+        <h1>{sellerString}</h1>
     );
 }
 

@@ -8,13 +8,10 @@ export const findAllSellers = () =>
 
 // Retrieve a single user by their ID
 export const findSellerById = (id) =>
-    console.log(`${SELLERS_URL}/${id}`);
-    /*
+    //console.log(`${SELLERS_URL}/${id}`);
+
     fetch(`${SELLERS_URL}/${id}`)
-        .then(response => {
-            console.log(response);
-            response.json();
-        })*/
+        .then(response => response.json())
 
 // Delete a user by their ID
 export const deleteSeller = (id) =>

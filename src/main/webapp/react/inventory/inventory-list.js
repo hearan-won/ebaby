@@ -9,6 +9,8 @@ const InventoryList = () => {
         inventoryService.findAllInventorys().then(inventorys => setInventorys(inventorys));
     }, []);
 
+
+
     return (
         <div>
             <h2>Inventory List</h2>
@@ -28,10 +30,12 @@ const InventoryList = () => {
                         </tr>
                         {inventorys.map(inventory => <tr>
                                         <td>{inventory.id}</td>
-                                        <td>{inventory.sellerId}</td>
+                                        <td><h5><a href={`http://localhost:63342/ebaby/spring-template/src/main/webapp/react/seller/index.html#/sellers/${inventory.sellerId}`}>{inventory.sellerId}</a></h5></td>
                                         <td>{inventory.location}</td>
-                                        <td><button className="wd-btn-primary">Products</button></td>
-                                    </tr>
+                                        <td><a href={`http://localhost:63342/ebaby/spring-template/src/main/webapp/react/product/index.html#/products/inventory/${inventory.id}`}><button className="wd-btn-primary">See Products</button></a></td>
+                                        <td><Link to={`/inventorys/${inventory.id}`}><button className="wd-btn-primary">Edit Inventory</button></Link></td>
+
+                            </tr>
                         )}
                     </table>
                     {/*// inventorys.map(inventory =>*/}

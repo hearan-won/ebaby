@@ -1,5 +1,7 @@
 import TransactionList from "./transaction-list";
 import TransactionFormEditor from "./transaction-form-editor";
+import TransactionsBySID from "./TransactionsBySID";
+import SellerFormEditor from "../seller/seller-form-editor";
 const {HashRouter, Route} = window.ReactRouterDOM;
 const App = () => {
     return (
@@ -17,7 +19,7 @@ const App = () => {
                     <TransactionFormEditor/>
                 </Route>
                 <Route path="/sellers/:id" exact={true}>
-
+                    <TransactionFormEditor/>
                 </Route>
             </HashRouter>
         </div>

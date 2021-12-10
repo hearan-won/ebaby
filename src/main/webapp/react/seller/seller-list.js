@@ -17,7 +17,7 @@ const SellerList = () => {
                     onClick={() => history.push("/sellers/new")}>
                 Add Seller
             </button>
-            <h4>Buyer information</h4><br/>
+            <h4>Seller information</h4><br/>
             <ul className="list-group">
 
                 <table width="100%">

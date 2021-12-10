@@ -1,6 +1,8 @@
 import transactionService from "./transaction-service";
 import sellerService from '../seller/seller-service'
 import TransactionsBySID from "./TransactionsBySID";
+import * as constants from "constants";
+
 const {Link, useHistory} = window.ReactRouterDOM;
 const {useState, useEffect} = React;
 
@@ -11,14 +13,16 @@ const TransactionList = () => {
         transactionService.findAllTransactions().then(transactions => setTransactions(transactions));
     }, []);
 
-    const [render, setRender] = useState(false)
+    const [render, setRender] = useState(true)
     const [localSeller, setLocalSeller] = useState({})
     const handleSellerClick = (id) => {
-        //return <TransactionsBySID seller={id}/>
-        transactionService.findSellerById(id).then((seller) => {
-            setRender(!render);
-            setLocalSeller(seller);
-        });
+        // transactionService.findSellerById(id).then((seller) => {
+        //     setRender(!render);
+        //     setLocalSeller(seller);
+        // }).then(() => window.location.reload());
+
+        history.push(`/sellers/${id}`);
+        //window.location.reload()
     }
 
     return (
@@ -31,32 +35,31 @@ const TransactionList = () => {
             <h4>Transactions Information</h4><br/>
             <ul className="list-group">
                 <table width="100%">
-                <tr>
-                    <th>Transaction Id</th>
-                    <th>Buyer Id</th>
-                    <th>Seller Id</th>
-                    <th>Transaction Date</th>
-                    <th>Transaction Amount</th>
-                </tr>
-                {transactions.map(transaction => <tr>
-                                 <td>{transaction.id}</td>
-                                 <td><h5>{transaction.buyerId}</h5></td>
-                    <td><h5 onClick={() => {
-                        console.log("Clicking on ", transaction.sellerId)
-                        handleSellerClick(transaction.sellerId)
-                        //history.push(`/sellers/${transaction.sellerId}`);
-                    }}>{transaction.sellerId}</h5></td>
-                    {
-                        render ? <TransactionsBySID seller={localSeller}/> : <></>
-                    }
+                    <tr>
+                        <th>Transaction Id</th>
+                        <th>Buyer Id</th>
+                        <th>Seller Id</th>
+                        <th>Transaction Date</th>
+                        <th>Transaction Amount</th>
+                    </tr>
+                    {transactions.map(transaction => <tr>
+                            <td>{transaction.id}</td>
+                            <td><h5>{transaction.buyerId}</h5></td>
+                            <td><h5 onClick={() => {
+                                console.log("Clicking on ", transaction.sellerId)
+                                handleSellerClick(transaction.sellerId)
+                                //history.push(`/sellers/${transaction.sellerId}`);
+                            }}>{transaction.sellerId}</h5></td>
 
+                            <td>{transaction.transactionDate}</td>
+                            <td>{transaction.amount}</td>
 
-                                 <td>{transaction.transactionDate}</td>
-                                 <td>{transaction.amount}</td>
-
-                             </tr>
-                )}
-            </table>
+                        </tr>
+                    )}
+                </table>
+                {/*{*/}
+                {/*    render ? <TransactionsBySID seller={localSeller}/> : <></>*/}
+                {/*}*/}
                 {
                     // transactions.map(transaction =>
                     //                  <li className="list-group-item wd-buyer-bg"

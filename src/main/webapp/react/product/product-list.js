@@ -2,12 +2,21 @@ import productService from "./product-service";
 
 const {Link, useHistory} = window.ReactRouterDOM;
 const {useState, useEffect} = React;
+const {useParams} = window.ReactRouterDOM;
+
 
 const ProductList = () => {
+    const {id} = useParams();
+
     const history = useHistory();
     const [products, setProducts] = useState([]);
     useEffect(() => {
-        productService.findAllProducts().then(products => setProducts(products));
+        if (id) {
+            console.log("id", id)
+            productService.findAllProducts().then(products => setProducts(products.filter(product => product.inventoryId === parseInt(id))))
+        } else {
+            productService.findAllProducts().then(products => setProducts(products));
+        }
     }, []);
 
     return (
@@ -28,14 +37,15 @@ const ProductList = () => {
                         <th>Price</th>
                         <th>Inventory Id</th>
                     </tr>
-                    {products.map(product => <tr>
-                                    <td>{product.id}</td>
-                                    <td>{product.category}</td>
-                                    <td>{product.name}</td>
-                                    <td>{product.price}</td>
-                                    <td>{product.inventoryId}</td>
-                                    <td><Link to={`/products/${product.id}`}><button className="wd-btn-primary">Edit Product</button></Link></td>
-                                </tr>
+                    {
+                    products.map(product => <tr>
+                            <td>{product.id}</td>
+                            <td>{product.category}</td>
+                            <td>{product.name}</td>
+                            <td>{product.price}</td>
+                            <td>{product.inventoryId}</td>
+                            <td><Link to={`/products/${product.id}`}><button className="wd-btn-primary">Edit Product</button></Link></td>
+                        </tr>
                     )}
                 </table>
                 {

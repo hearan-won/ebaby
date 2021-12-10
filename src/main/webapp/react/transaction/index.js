@@ -16,6 +16,9 @@ const App = () => {
                 <Route path="/transactions/:id" exact={true}>
                     <TransactionFormEditor/>
                 </Route>
+                <Route path="/sellers/:id" exact={true}>
+
+                </Route>
             </HashRouter>
         </div>
     );

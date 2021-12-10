@@ -1,4 +1,6 @@
 import transactionService from "./transaction-service";
+import sellerService from '../seller/seller-service'
+import TransactionsBySID from "./TransactionsBySID";
 const {Link, useHistory} = window.ReactRouterDOM;
 const {useState, useEffect} = React;
 
@@ -8,6 +10,16 @@ const TransactionList = () => {
     useEffect(() => {
         transactionService.findAllTransactions().then(transactions => setTransactions(transactions));
     }, []);
+
+    const [render, setRender] = useState(false)
+    const [localSeller, setLocalSeller] = useState({})
+    const handleSellerClick = (id) => {
+        //return <TransactionsBySID seller={id}/>
+        transactionService.findSellerById(id).then((seller) => {
+            setRender(!render);
+            setLocalSeller(seller);
+        });
+    }
 
     return (
         <div>
@@ -28,10 +40,20 @@ const TransactionList = () => {
                 </tr>
                 {transactions.map(transaction => <tr>
                                  <td>{transaction.id}</td>
-                                 <td>{transaction.buyerId}</td>
-                                 <td>{transaction.sellerId}</td>
+                                 <td><h5>{transaction.buyerId}</h5></td>
+                    <td><h5 onClick={() => {
+                        console.log("Clicking on ", transaction.sellerId)
+                        handleSellerClick(transaction.sellerId)
+                        //history.push(`/sellers/${transaction.sellerId}`);
+                    }}>{transaction.sellerId}</h5></td>
+                    {
+                        render ? <TransactionsBySID seller={localSeller}/> : <></>
+                    }
+
+
                                  <td>{transaction.transactionDate}</td>
                                  <td>{transaction.amount}</td>
+
                              </tr>
                 )}
             </table>
@@ -53,5 +75,6 @@ const TransactionList = () => {
         </div>
     );
 }
+// <Link to={`/sellers/${transaction.sellerId}`}> </Link>
 
 export default TransactionList;

@@ -8,7 +8,6 @@ public class Orders {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Integer id;
-
   private int quantity;
   private int productId;
   private int bid;

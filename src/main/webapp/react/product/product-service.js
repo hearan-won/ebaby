@@ -1,5 +1,5 @@
 // Declare URL where server listens for HTTP requests
-const PRODUCT_URL = "http://localhost:8090/api/products"
+const PRODUCT_URL = "http://localhost:8000/api/products"
 
 // Retrieve all products from the server
 export const findAllProducts = () =>

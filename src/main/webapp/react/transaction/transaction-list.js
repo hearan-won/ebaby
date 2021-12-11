@@ -1,7 +1,4 @@
 import transactionService from "./transaction-service";
-import sellerService from '../seller/seller-service'
-import TransactionsBySID from "./TransactionsBySID";
-import * as constants from "constants";
 
 const {Link, useHistory} = window.ReactRouterDOM;
 const {useState, useEffect} = React;
@@ -13,17 +10,8 @@ const TransactionList = () => {
         transactionService.findAllTransactions().then(transactions => setTransactions(transactions));
     }, []);
 
-    const [render, setRender] = useState(true)
-    const [localSeller, setLocalSeller] = useState({})
-    const handleSellerClick = (id) => {
-        // transactionService.findSellerById(id).then((seller) => {
-        //     setRender(!render);
-        //     setLocalSeller(seller);
-        // }).then(() => window.location.reload());
+    history.push(`/sellers/${id}`);
 
-        history.push(`/sellers/${id}`);
-        //window.location.reload()
-    }
 
     return (
         <div>
@@ -45,31 +33,21 @@ const TransactionList = () => {
                     </tr>
                     {transactions.map(transaction => <tr>
                             <td>{transaction.id}</td>
-                            <td><h5><a href={`http://localhost:63342/ebaby/spring-template/src/main/webapp/react/buyer/index.html#/buyers/${transaction.buyerId}`}>{transaction.buyerId}</a></h5></td>
-                            <td><h5><a href={`http://localhost:63342/ebaby/spring-template/src/main/webapp/react/seller/index.html#/sellers/${transaction.sellerId}`}>{transaction.sellerId}</a></h5></td>
+                            <td><h5><a
+                                href={`http://localhost:63342/ebaby/spring-template/src/main/webapp/react/buyer/index.html#/buyers/${transaction.buyerId}`}>{transaction.buyerId}</a>
+                            </h5></td>
+                            <td><h5><a
+                                href={`http://localhost:63342/ebaby/spring-template/src/main/webapp/react/seller/index.html#/sellers/${transaction.sellerId}`}>{transaction.sellerId}</a>
+                            </h5></td>
                             <td>{transaction.transactionDate}</td>
                             <td>{transaction.amount}</td>
 
                         </tr>
                     )}
                 </table>
-                <Link to={`/transactions/2`}><button className="wd-btn-primary">Edit Seller</button></Link>
-                {/*{*/}
-                {/*    render ? <TransactionsBySID seller={localSeller}/> : <></>*/}
-                {/*}*/}
-                {
-                    // transactions.map(transaction =>
-                    //                  <li className="list-group-item wd-buyer-bg"
-                    //                      key={transaction.id}>
-                    //                      <Link to={`/transactions/${transaction.id}`}>
-                    //                          <label>Transaction Id:  {transaction.id} </label><br/>
-                    //                          {/*<label>Buyer Id:  {transaction.buyerId} </label><br/>*/}
-                    //                          <label>Seller Id: {transaction.sellerId}</label><br/>
-                    //                          <label>Transaction Date: {transaction.transactionDate} </label><br/>
-                    //                          <label>Transaction Amount: {transaction.amount}</label>
-                    //                      </Link>
-                    //                  </li>
-                    // )
+                <Link to={`/transactions/2`}>
+                    <button className="wd-btn-primary">Edit Seller</button>
+                </Link>
                 }
             </ul>
         </div>

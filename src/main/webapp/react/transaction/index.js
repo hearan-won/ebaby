@@ -1,6 +1,5 @@
 import TransactionList from "./transaction-list";
 import TransactionFormEditor from "./transaction-form-editor";
-import TransactionsBySID from "./TransactionsBySID";
 import SellerFormEditor from "../seller/seller-form-editor";
 const {HashRouter, Route} = window.ReactRouterDOM;
 const App = () => {

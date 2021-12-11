@@ -42,7 +42,7 @@ const OrderList = () => {
                                         <td>{order.bid}</td>
                                         <td>{order.productId}</td>
                                         <td>{order.quantity}</td>
-                                        <td><button className="wd-btn-primary">See Products</button></td>
+                                        {/*<td><button className="wd-btn-primary">See Products</button></td>*/}
                                         <td><Link to={`/orders/${order.id}`}><button className="wd-btn-primary">Edit Order</button></Link></td>
                                         </tr>
                     )}

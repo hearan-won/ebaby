@@ -1,6 +1,5 @@
 import ProductList from "./product-list";
 import ProductFormEditor from "./product-form-editor";
-import InventoryProductList from "./Inventory-product-list";
 const {HashRouter, Route} = window.ReactRouterDOM;
 const App = () => {
     return (

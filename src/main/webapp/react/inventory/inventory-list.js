@@ -1,12 +1,21 @@
 import inventoryService from "./inventory-service";
+import orderService from "../orders/order-service";
 const {Link, useHistory} = window.ReactRouterDOM;
 const {useState, useEffect} = React;
+const {useParams} = window.ReactRouterDOM;
 
 const InventoryList = () => {
+    const {id} = useParams();
     const history = useHistory();
     const [inventorys, setInventorys] = useState([]);
     useEffect(() => {
-        inventoryService.findAllInventorys().then(inventorys => setInventorys(inventorys));
+        //inventoryService.findAllInventorys().then(inventorys => setInventorys(inventorys));
+        if (id) {
+            console.log("id", id)
+            inventoryService.findAllInventorys().then(inventorys => setInventorys(inventorys.filter(inventory => inventory.sellerId === parseInt(id))))
+        } else {
+            inventoryService.findAllInventorys().then(inventorys => setInventorys(inventorys));
+        }
     }, []);
 
 

@@ -1,12 +1,22 @@
 import orderService from "./order-service";
+import productService from "../product/product-service";
 const {Link, useHistory} = window.ReactRouterDOM;
 const {useState, useEffect} = React;
+const {useParams} = window.ReactRouterDOM;
 
 const OrderList = () => {
+    const {id} = useParams();
     const history = useHistory();
     const [orders, setOrders] = useState([]);
     useEffect(() => {
-        orderService.findAllOrders().then(orders => setOrders(orders));
+        //orderService.findAllOrders().then(orders => setOrders(orders));
+
+        if (id) {
+            console.log("id", id)
+            orderService.findAllOrders().then(orders => setOrders(orders.filter(order => order.bid === parseInt(id))))
+        } else {
+            orderService.findAllOrders().then(orders => setOrders(orders));
+        }
     }, []);
 
     return (

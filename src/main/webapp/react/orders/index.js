@@ -8,7 +8,7 @@ const App = () => {
         <div className="container-fluid">
 
             <HashRouter>
-                <Route path={["/orders", "/"]} exact={true}>
+                <Route path={["/orders", "/", "/orders/buyer/:id"]} exact={true}>
                     <OrderList/>
                 </Route>
                 <Route path="/orders/:id" exact={true}>

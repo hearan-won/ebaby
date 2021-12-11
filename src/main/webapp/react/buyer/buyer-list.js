@@ -33,7 +33,7 @@ const BuyerList = () => {
                             <td>{buyer.firstName}</td>
                             <td>{buyer.lastName}</td>
                             <td>{buyer.personName}</td>
-                            <td><button className="wd-btn-primary">Orders</button></td>
+                            <td><a href={`http://localhost:63342/ebaby/spring-template/src/main/webapp/react/orders/index.html#/orders/buyer/${buyer.id}`}><button className="wd-btn-primary"> See Orders</button></a></td>
                             <td><Link to={`/buyers/${buyer.id}`}><button className="wd-btn-primary">Edit Buyer</button></Link></td>
                         </tr>
                         )}

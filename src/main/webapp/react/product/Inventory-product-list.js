@@ -12,7 +12,7 @@ const InventoryProductList = () => {
     const [products, setProducts] = useState([]);
     useEffect(() => {
         //productService.findAllProducts().then(products => setProducts(products.filter((product) => product.inventoryId === id)));
-        // productService.findProductsByInventoryId(id).then(products => setProducts(products));
+        //productService.findProductsByInventoryId(id).then(products => setProducts(products));
     }, []);
 
     return (

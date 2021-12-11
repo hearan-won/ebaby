@@ -10,8 +10,6 @@ const TransactionList = () => {
         transactionService.findAllTransactions().then(transactions => setTransactions(transactions));
     }, []);
 
-    history.push(`/sellers/${id}`);
-
 
     return (
         <div>
@@ -45,10 +43,7 @@ const TransactionList = () => {
                         </tr>
                     )}
                 </table>
-                <Link to={`/transactions/2`}>
-                    <button className="wd-btn-primary">Edit Seller</button>
-                </Link>
-                }
+
             </ul>
         </div>
     );

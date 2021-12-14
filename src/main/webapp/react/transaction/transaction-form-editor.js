@@ -25,12 +25,13 @@ const TransactionFormEditor = () => {
     }
 
 
-    const createTransaction = (transaction) =>
-        transactionService.createProduct(transaction)
+    const createTransaction = (transaction) => {
+        console.log(transaction);
+        transactionService.createTransaction(transaction)
             .then(() => {
                 goBack()
             });
-
+    }
     const findTransactionById = (id) =>
         transactionService.findTransactionById(id)
             .then(transaction => {
@@ -50,9 +51,15 @@ const TransactionFormEditor = () => {
             <label>Transaction Id:</label>
             <input value={transaction.id}/><br/>
             <label>Buyer Id: </label>
-            <input value = {transaction.buyerId}/><br/>
+            <input value = {transaction.buyerId}
+                   onChange={(e) =>
+                       setTransaction(transaction =>
+                           ({...transaction, buyerId: e.target.value}))}/><br/>
             <label>Seller Id: </label>
-            <input value = {transaction.sellerId}/><br/>
+            <input value = {transaction.sellerId}
+                   onChange={(e) =>
+                       setTransaction(transaction =>
+                           ({...transaction, sellerId: e.target.value}))}/><br/>
             <label>Transaction Date: </label>
             <input type = "date" value={transaction.transactionDate}
                    onChange={(e) =>

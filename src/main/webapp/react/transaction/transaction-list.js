@@ -1,4 +1,5 @@
 import transactionService from "./transaction-service";
+import "./index.css";
 
 const {Link, useHistory} = window.ReactRouterDOM;
 const {useState, useEffect} = React;
@@ -10,7 +11,7 @@ const TransactionList = () => {
         transactionService.findAllTransactions().then(transactions => setTransactions(transactions));
     }, []);
 
-
+console.log(transactions);
     return (
         <div>
             <h2>Transactions List</h2>
@@ -39,7 +40,7 @@ const TransactionList = () => {
                             </h5></td>
                             <td>{transaction.transactionDate}</td>
                             <td>{transaction.amount}</td>
-
+                        <td><Link to={`/transactions/${transaction.id}`}><button className="wd-btn-primary">Edit Transactions</button></Link></td>
                         </tr>
                     )}
                 </table>

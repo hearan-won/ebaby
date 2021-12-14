@@ -24,8 +24,8 @@ public class TransactionRestOrmDao {
 
   @PostMapping("/api/transactions")
   public Transaction createTransaction(@RequestBody Transaction transaction) {
-    Transaction newTransaction = new Transaction(transaction.getBuyerId(), transaction.getSellerId(), transaction.getTransactionDate(), transaction.getAmount());
-    return transactionRepository.save(newTransaction);
+    //Transaction newTransaction = new Transaction(transaction.getBuyerId(), transaction.getSellerId(), transaction.getTransactionDate(), transaction.getAmount());
+    return transactionRepository.save(transaction);
   }
 
   @GetMapping("/api/transactions")
